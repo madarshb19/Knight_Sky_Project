@@ -3,14 +3,18 @@ import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
 // Define domains enum
-export const domainEnum = z.enum(["astrophysics", "biology", "humanities"]);
+export const domainEnum = z.enum(["astrophysics", "biology", "humanities", "quantum", "finance", "kaggle"]);
 export type Domain = z.infer<typeof domainEnum>;
+
+// Define project status enum
+export const statusEnum = z.enum(["not-started", "in-progress", "completed"]);
+export type ProjectStatus = z.infer<typeof statusEnum>;
 
 // Projects table
 export const projects = pgTable("projects", {
   id: serial("id").primaryKey(),
   title: text("title").notNull(),
-  domain: text("domain", { enum: ["astrophysics", "biology", "humanities"] }).notNull(),
+  domain: text("domain", { enum: ["astrophysics", "biology", "humanities", "quantum", "finance", "kaggle"] }).notNull(),
   description: text("description").notNull(),
   fullDescription: text("full_description").notNull(),
   imageUrl: text("image_url"),
@@ -19,6 +23,7 @@ export const projects = pgTable("projects", {
   githubUrl: text("github_url"),
   notebookUrl: text("notebook_url"),
   featured: integer("featured").default(0),
+  status: text("status", { enum: ["not-started", "in-progress", "completed"] }).default("not-started").notNull(),
 });
 
 // Insert schema
@@ -55,6 +60,30 @@ export const domainThemes = {
     accent: "text-sky-400",
     background: "bg-gradient-to-r from-amber-950 to-orange-950",
     card: "bg-amber-900/70 backdrop-blur-md border border-amber-700"
+  },
+  quantum: {
+    primary: "bg-slate-100",
+    secondary: "bg-white",
+    text: "text-slate-900",
+    accent: "text-blue-600",
+    background: "bg-gradient-to-r from-gray-50 to-slate-200",
+    card: "bg-white/90 backdrop-blur-md border border-slate-300"
+  },
+  finance: {
+    primary: "bg-blue-900",
+    secondary: "bg-blue-800",
+    text: "text-blue-100",
+    accent: "text-green-400",
+    background: "bg-gradient-to-r from-blue-950 to-blue-900",
+    card: "bg-blue-900/70 backdrop-blur-md border border-blue-700"
+  },
+  kaggle: {
+    primary: "bg-sky-700",
+    secondary: "bg-sky-600",
+    text: "text-sky-100",
+    accent: "text-yellow-400",
+    background: "bg-gradient-to-r from-sky-800 to-sky-700",
+    card: "bg-sky-700/70 backdrop-blur-md border border-sky-600"
   }
 };
 
@@ -71,6 +100,7 @@ export const projectSchema = z.object({
   githubUrl: z.string().optional(),
   notebookUrl: z.string().optional(),
   featured: z.number().default(0),
+  status: statusEnum.default("not-started"),
 });
 
 export type ProjectType = z.infer<typeof projectSchema>;

@@ -1,0 +1,51 @@
+For Astrophysics
+
+Electron-Photon particle classification with ResNet-15
+Event Classification With Masked Transformer Autoencoders
+Super-Resolution and reconstruction of LHC events using GAN's
+End-to-End event classification with sparse autoencoders
+Diffusion models for fast and accurate simulations of low level LHC experiment data
+Deep Learning Inference for mass regression
+Next generation vision transformers for end to end mass regression and classification
+End-to-End particle collision track reconstruction using GNN's
+Foundation models for End-to-End event reconstruction
+Experiments to understand rotational invariance and Discovery of hidden symmetries and conservation laws
+Classification models for different dark matter substructures
+Finding gravitational lenses in images using deep-learning approaches and comparing with PINN architectures
+Upscaling low-resolution images of strong lensing using Super-Resolution algorithms
+Creating and training diffusion models to simulate realistic strong gravitational lensing images
+Training a Masked Autoencoder (MAE) on halo samples with no substructures to learn a feature representation of strong lensing images
+Creating a machine learning pipeline capable of providing detailed analysis of protoplanetary disks using ALMA data
+Exploring use-case of Quantum ML algorithms for exoplanet detection
+Comparing Graph-based and Autoencoder approaches to classify quark-gluon events
+Graph Representation Learning for Fast Detector Simulation
+Diffusion Models for Fast Detector Simulation
+Graph Transformers for Fast Detector Simulation
+Optimal Transport for HEP
+Using LSTMs and Transformer architectures to try and learn Talor series expansions
+Deep Graph Anomaly Detection with Contrastive Learning
+Learning Parametrization with Implicit Neural Representations
+Learning the Latent Structure of collision events with Diffusion Models
+Non-local GNNs for Jet Classification
+Solving a dampled harmonic oscillator equation with PINNDE's
+Next-Generation Transformer Models for Symbolic Calculations of Squared Amplitudes in HEP
+State-space Models for Squared Amplitude Calculation in High-Energy Physics
+Transformer Models for Symbolic Regression
+Titans (Google's new kid) for squared amplitude calculation
+Evolutionary and Transformer Models for Symbolic Regression
+Symbolic empirical representation of squared amplitudes in high-energy physics
+Foundation models for symbolic regression tasks
+
+For Biology
+
+CEBRA-Based Data Processing Pipeline for Mapping Time-Locked EEG Paired Sets in Interacting Participants
+
+For Humanities (will update soon)
+
+
+For Kaggle
+
+ARC-AGI experiments
+Nexar Dashcam Accident Prediction
+
+For Finance (will update soon)
