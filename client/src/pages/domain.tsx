@@ -70,6 +70,9 @@ export default function DomainPage() {
       astrophysics: "Astrophysics Projects",
       biology: "Biology Projects",
       humanities: "Humanities Projects",
+      quantum: "Quantum Machine Learning",
+      finance: "Finance Projects",
+      kaggle: "Kaggle Projects"
     };
     return titles[domain];
   };
@@ -79,8 +82,23 @@ export default function DomainPage() {
       astrophysics: "Machine learning applications in space exploration and celestial data analysis",
       biology: "AI models for understanding biological systems and genomic patterns",
       humanities: "Computational approaches to cultural, historical, and textual analysis",
+      quantum: "Quantum computing and machine learning applications for complex computational problems",
+      finance: "AI and machine learning solutions for financial markets and prediction models",
+      kaggle: "Competition projects and datasets exploring various machine learning challenges"
     };
     return descriptions[domain];
+  };
+  
+  const getDomainTitleGradient = (domain: Domain): string => {
+    const gradients: Record<Domain, string> = {
+      astrophysics: "from-indigo-400 to-purple-500",
+      biology: "from-emerald-400 to-teal-500",
+      humanities: "from-amber-400 to-orange-500",
+      quantum: "from-slate-500 to-blue-600",
+      finance: "from-blue-400 to-blue-600",
+      kaggle: "from-sky-400 to-cyan-500"
+    };
+    return gradients[domain];
   };
 
   const containerVariants = {
@@ -115,7 +133,7 @@ export default function DomainPage() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-500">
+          <h1 className={`text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r ${getDomainTitleGradient(domainParam)}`}>
             {getDomainTitle(domainParam)}
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">

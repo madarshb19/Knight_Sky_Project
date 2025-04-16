@@ -3,7 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import fs from "fs";
 import path from "path";
-import { projectSchema } from "@shared/schema";
+import { projectSchema, Domain, domainEnum } from "@shared/schema";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -48,7 +48,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ message: "Invalid domain" });
       }
       
-      const projects = await storage.getProjectsByDomain(domain);
+      // Type assertion to a valid domain
+      const validDomain = domain as "astrophysics" | "biology" | "humanities" | "quantum" | "finance" | "kaggle";
+      const projects = await storage.getProjectsByDomain(validDomain);
       res.json(projects);
     } catch (error) {
       res.status(500).json({ message: "Failed to retrieve projects" });
