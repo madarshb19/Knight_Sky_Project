@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "title": "Exoplanet Detection with Deep Learning",
+    "domain": "astrophysics",
+    "description": "Developing convolutional neural networks to detect exoplanets from light curve data captured by space telescopes.",
+    "fullDescription": "<p>This project focuses on creating a deep learning model that can automatically detect exoplanets from the light curve data collected by space telescopes like Kepler and TESS. The model uses convolutional neural networks (CNNs) to identify the characteristic dips in starlight that occur when planets transit in front of their host stars.</p><p>The project required extensive preprocessing of raw light curve data to account for various systematic errors and stellar variability. The model was trained on confirmed exoplanet transits and achieved 92% accuracy on the test dataset, significantly reducing the manual effort required in the planet detection pipeline.</p>",
+    "technologies": ["Python", "TensorFlow", "Keras", "Astropy", "Pandas", "NumPy"],
+    "results": "The model achieved 92% accuracy on test data, successfully identifying 15 previously undetected planetary candidates in Kepler archive data.",
+    "githubUrl": "https://github.com/example/exoplanet-detection",
+    "notebookUrl": "https://github.com/example/exoplanet-detection/blob/main/notebook.ipynb",
+    "featured": 1
+  },
+  {
+    "id": 2,
+    "title": "Galactic Morphology Classification",
+    "domain": "astrophysics",
+    "description": "Using transfer learning to classify galaxies based on their morphological features from the Sloan Digital Sky Survey imagery.",
+    "fullDescription": "<p>This project addresses the challenge of automatically classifying galaxies based on their morphological features using deep learning techniques. Using over 50,000 galaxy images from the Sloan Digital Sky Survey (SDSS), I implemented a transfer learning approach based on a pre-trained ResNet50 architecture.</p><p>The model was fine-tuned to classify galaxies into several morphological types, including elliptical, spiral, barred spiral, and irregular galaxies. Special attention was given to data augmentation and handling class imbalance, as certain galaxy types are much less common than others.</p><p>The project involved close collaboration with astrophysicists to ensure the model was capturing meaningful morphological features rather than artifacts or biases in the data collection process.</p>",
+    "technologies": ["PyTorch", "Transfer Learning", "Computer Vision", "SQL", "Scikit-learn", "Matplotlib"],
+    "results": "Achieved 87% classification accuracy across 5 galaxy types, enabling faster cataloging of millions of galaxies from survey data.",
+    "githubUrl": "https://github.com/example/galaxy-classification",
+    "notebookUrl": "https://github.com/example/galaxy-classification/blob/main/notebook.ipynb",
+    "featured": 1
+  },
+  {
+    "id": 3,
+    "title": "Cosmic Microwave Background Analysis",
+    "domain": "astrophysics",
+    "description": "Applying wavelet transforms and statistical methods to analyze cosmic microwave background radiation patterns from Planck satellite data.",
+    "fullDescription": "<p>The Cosmic Microwave Background (CMB) radiation is the oldest light in the universe, dating back to approximately 380,000 years after the Big Bang. This project involves analyzing patterns in the CMB using data from the Planck satellite mission.</p><p>I implemented several wavelet transform techniques to decompose the CMB temperature and polarization maps, allowing for multi-scale analysis of the primordial fluctuations. This approach helps separate the cosmological signal from various sources of noise and foreground contamination.</p><p>The project also includes statistical analysis to extract cosmological parameters and test how well different theoretical models fit the observed data. Bayesian inference techniques were implemented to quantify uncertainties in the parameter estimation process.</p>",
+    "technologies": ["Python", "SciPy", "PyWavelets", "HEALPix", "MCMC", "Bayesian Statistics"],
+    "results": "Produced improved constraints on cosmological parameters and identified several anomalous regions for further investigation by cosmologists.",
+    "githubUrl": "https://github.com/example/cmb-analysis",
+    "notebookUrl": "https://github.com/example/cmb-analysis/blob/main/notebook.ipynb",
+    "featured": 0
+  },
+  {
+    "id": 4,
+    "title": "Gene Expression Clustering in Cancer",
+    "domain": "biology",
+    "description": "Applying unsupervised learning techniques to identify patterns in gene expression data from cancer patients to discover potential subtypes.",
+    "fullDescription": "<p>This project explores the application of unsupervised learning methods to analyze gene expression data from cancer patients. The goal was to identify previously unknown cancer subtypes that might respond differently to treatments or have different prognoses.</p><p>Working with RNA-seq data from The Cancer Genome Atlas (TCGA), I applied dimensionality reduction techniques like t-SNE and UMAP to visualize the high-dimensional gene expression data. This was followed by clustering algorithms including hierarchical clustering, k-means, and DBSCAN to identify potential cancer subtypes.</p><p>The project also included survival analysis to determine whether the identified clusters corresponded to clinically relevant differences in patient outcomes. Additionally, pathway enrichment analysis was performed to understand the biological mechanisms that differentiate the clusters.</p>",
+    "technologies": ["R", "Bioconductor", "scikit-learn", "UMAP", "Clustering", "Survival Analysis"],
+    "results": "Identified three distinct molecular subtypes in breast cancer samples with significantly different survival rates and treatment responses.",
+    "githubUrl": "https://github.com/example/cancer-expression-clustering",
+    "notebookUrl": "https://github.com/example/cancer-expression-clustering/blob/main/analysis.ipynb",
+    "featured": 1
+  },
+  {
+    "id": 5,
+    "title": "Protein Structure Prediction",
+    "domain": "biology",
+    "description": "Developing a deep learning model inspired by AlphaFold to predict 3D protein structures from amino acid sequences.",
+    "fullDescription": "<p>Protein structure prediction is one of the most challenging problems in computational biology. This project implements a simplified version of the AlphaFold approach to predict the three-dimensional structure of proteins from their amino acid sequences.</p><p>I developed a multi-stage pipeline that includes sequence alignment, feature extraction, and a deep neural network architecture combining attention mechanisms and convolutional layers. The model was trained on the PDB database of known protein structures.</p><p>Special attention was given to evaluating the quality of predicted structures using metrics like RMSD (Root Mean Square Deviation) and TM-score (Template Modeling score), which measure the similarity between predicted and experimental structures.</p><p>The project also includes a visualization component that allows users to interactively explore the predicted protein structures.</p>",
+    "technologies": ["Python", "PyTorch", "BioPython", "Attention Networks", "Molecular Visualization", "HPC"],
+    "results": "Achieved an average RMSD of 4.2Å on test proteins, enabling accurate structure prediction for several previously unsolved proteins.",
+    "githubUrl": "https://github.com/example/protein-structure-prediction",
+    "notebookUrl": "https://github.com/example/protein-structure-prediction/blob/main/model.ipynb",
+    "featured": 1
+  },
+  {
+    "id": 6,
+    "title": "Microbiome Diversity Analysis",
+    "domain": "biology",
+    "description": "Using machine learning to analyze gut microbiome data and identify connections between bacterial communities and health outcomes.",
+    "fullDescription": "<p>The human microbiome plays a crucial role in health and disease. This project focuses on analyzing gut microbiome data to identify connections between bacterial communities and various health outcomes.</p><p>Using 16S rRNA sequencing data from several hundred subjects, I applied a variety of ecological diversity metrics and statistical techniques to characterize the composition and diversity of gut bacterial communities. This included alpha diversity measures (within-sample diversity) and beta diversity measures (between-sample diversity).</p><p>Machine learning models were then trained to predict health outcomes based on microbiome features. Various classification algorithms including Random Forests, Gradient Boosting, and Support Vector Machines were evaluated. Feature importance analysis was used to identify the bacterial taxa most strongly associated with different health states.</p><p>The project also included longitudinal analysis to track changes in the microbiome over time and in response to interventions.</p>",
+    "technologies": ["QIIME2", "Python", "Random Forests", "Ecological Statistics", "Multivariate Analysis", "Visualization"],
+    "results": "Discovered specific bacterial signatures associated with inflammatory bowel disease, creating potential for non-invasive diagnostic tools.",
+    "githubUrl": "https://github.com/example/microbiome-analysis",
+    "notebookUrl": "https://github.com/example/microbiome-analysis/blob/main/analysis.ipynb",
+    "featured": 0
+  },
+  {
+    "id": 7,
+    "title": "Ancient Text Classification",
+    "domain": "humanities",
+    "description": "Using NLP and machine learning to classify ancient manuscripts by time period, region, and authorship based on linguistic features.",
+    "fullDescription": "<p>This project applies natural language processing and machine learning techniques to classify ancient manuscripts based on various attributes including time period, geographical region, and authorship.</p><p>Working with a corpus of digitized ancient texts from different historical periods and regions, I extracted a wide range of linguistic features including vocabulary distributions, syntactic patterns, and stylometric markers. These features were then used to train machine learning models for classification tasks.</p><p>The project faced several challenges related to working with ancient texts, including incomplete documents, spelling variations, and evolving language use over time. I implemented several preprocessing steps to address these challenges, including text normalization, handling of abbreviations, and dealing with lacunae (gaps in texts).</p><p>The classification models were evaluated using cross-validation techniques, with special attention to the interpretability of results to ensure they would be useful for humanities scholars.</p>",
+    "technologies": ["NLP", "BERT", "Historical Linguistics", "Python", "spaCy", "Digital Humanities"],
+    "results": "Achieved 84% accuracy in dating ancient manuscripts, helping scholars resolve debates about the provenance of several contentious texts.",
+    "githubUrl": "https://github.com/example/ancient-text-classification",
+    "notebookUrl": "https://github.com/example/ancient-text-classification/blob/main/classification.ipynb",
+    "featured": 1
+  },
+  {
+    "id": 8,
+    "title": "Historical Document OCR Enhancement",
+    "domain": "humanities",
+    "description": "Improving OCR accuracy for historical documents using deep learning to handle degraded text, archaic fonts, and manuscript irregularities.",
+    "fullDescription": "<p>Optical Character Recognition (OCR) of historical documents presents unique challenges due to degraded paper quality, archaic typography, irregular handwriting, and other factors. This project focuses on improving OCR accuracy for historical documents through specialized deep learning approaches.</p><p>I developed a pipeline that begins with image preprocessing techniques to enhance document quality, followed by a custom-trained neural network for text recognition. The model incorporates both convolutional neural networks for feature extraction and recurrent neural networks with attention mechanisms for sequence recognition.</p><p>A key innovation in this project was the implementation of a language model post-processing step that uses historical language patterns to correct OCR errors. This approach significantly improved accuracy for documents with specialized vocabulary and archaic spelling.</p><p>The system was tested on a diverse corpus of historical documents including manuscripts, early printed books, and typescripts from various time periods and regions.</p>",
+    "technologies": ["Computer Vision", "OCR", "TensorFlow", "RNN", "Attention Mechanisms", "Image Processing"],
+    "results": "Reduced OCR error rates by 47% compared to commercial OCR software when processing 18th-century documents with irregular typography.",
+    "githubUrl": "https://github.com/example/historical-ocr",
+    "notebookUrl": "https://github.com/example/historical-ocr/blob/main/ocr_model.ipynb",
+    "featured": 1
+  },
+  {
+    "id": 9,
+    "title": "Cultural Heritage Image Analysis",
+    "domain": "humanities",
+    "description": "Applying computer vision to analyze patterns and motifs in cultural heritage artifacts across different civilizations and time periods.",
+    "fullDescription": "<p>This project leverages computer vision and machine learning techniques to analyze visual patterns and motifs in cultural heritage artifacts from various civilizations and historical periods.</p><p>Working with a dataset of thousands of images of artifacts including pottery, textiles, jewelry, and architectural elements, I developed algorithms to automatically detect and classify recurring visual motifs and stylistic elements. The system can identify similarities between artifacts that might indicate cultural exchange or shared traditions.</p><p>The technical approach combines traditional computer vision techniques for feature extraction with deep learning methods for pattern recognition. A CNN-based model was trained to identify specific motif categories, while unsupervised learning methods were used to discover previously unrecognized pattern relationships.</p><p>The project includes an interactive visualization component that allows researchers to explore connections between artifacts based on visual similarity, geographical proximity, and temporal relationships.</p>",
+    "technologies": ["Computer Vision", "CNN", "Transfer Learning", "Unsupervised Learning", "D3.js", "Cultural Analytics"],
+    "results": "Identified previously unrecognized pattern connections between Mesopotamian and Indus Valley artifacts, suggesting cultural exchange routes.",
+    "githubUrl": "https://github.com/example/cultural-heritage-analysis",
+    "notebookUrl": "https://github.com/example/cultural-heritage-analysis/blob/main/pattern_analysis.ipynb",
+    "featured": 0
+  }
+]
