@@ -71,6 +71,15 @@ export default function Navbar() {
             <Button variant="ghost" onClick={() => navigateToDomain("humanities")}>
               Humanities
             </Button>
+            <Button variant="ghost" onClick={() => navigateToDomain("quantum")}>
+              Quantum ML
+            </Button>
+            <Button variant="ghost" onClick={() => navigateToDomain("finance")}>
+              Finance
+            </Button>
+            <Button variant="ghost" onClick={() => navigateToDomain("kaggle")}>
+              Kaggle
+            </Button>
             <a
               href="https://github.com"
               target="_blank"
@@ -109,6 +118,21 @@ export default function Navbar() {
                   <SheetClose asChild>
                     <Button variant="ghost" onClick={() => navigateToDomain("humanities")}>
                       Humanities
+                    </Button>
+                  </SheetClose>
+                  <SheetClose asChild>
+                    <Button variant="ghost" onClick={() => navigateToDomain("quantum")}>
+                      Quantum ML
+                    </Button>
+                  </SheetClose>
+                  <SheetClose asChild>
+                    <Button variant="ghost" onClick={() => navigateToDomain("finance")}>
+                      Finance
+                    </Button>
+                  </SheetClose>
+                  <SheetClose asChild>
+                    <Button variant="ghost" onClick={() => navigateToDomain("kaggle")}>
+                      Kaggle
                     </Button>
                   </SheetClose>
                   <a

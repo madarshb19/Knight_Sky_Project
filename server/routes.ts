@@ -43,7 +43,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const domain = req.params.domain;
       
       // Validate domain parameter
-      const validDomains = ["astrophysics", "biology", "humanities"];
+      const validDomains = ["astrophysics", "biology", "humanities", "quantum", "finance", "kaggle"];
       if (!validDomains.includes(domain)) {
         return res.status(400).json({ message: "Invalid domain" });
       }
