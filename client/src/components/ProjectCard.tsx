@@ -29,7 +29,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
       case 'humanities':
         return "bg-gradient-to-br from-amber-900/90 to-orange-900/90 border-amber-700";
       case 'quantum':
-        return "bg-gradient-to-br from-slate-200/90 to-slate-100/90 border-slate-300 text-slate-900";
+        return "bg-gradient-to-br from-red-900/90 to-red-800/90 border-red-700 text-red-100";
       case 'finance':
         return "bg-gradient-to-br from-blue-900/90 to-blue-800/90 border-blue-700";
       case 'kaggle':
@@ -108,7 +108,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
                 ${project.domain === 'astrophysics' ? 'bg-indigo-800/30 text-indigo-200 border-indigo-600' : 
                   project.domain === 'biology' ? 'bg-emerald-800/30 text-emerald-200 border-emerald-600' : 
                   project.domain === 'humanities' ? 'bg-amber-800/30 text-amber-200 border-amber-600' :
-                  project.domain === 'quantum' ? 'bg-slate-200/30 text-slate-800 border-slate-400' :
+                  project.domain === 'quantum' ? 'bg-red-800/30 text-red-200 border-red-600' :
                   project.domain === 'finance' ? 'bg-blue-800/30 text-blue-200 border-blue-600' :
                   project.domain === 'kaggle' ? 'bg-sky-700/30 text-sky-200 border-sky-500' :
                   'bg-gray-800/30 text-gray-200 border-gray-600'
