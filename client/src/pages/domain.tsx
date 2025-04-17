@@ -94,7 +94,7 @@ export default function DomainPage() {
       astrophysics: "from-indigo-400 to-purple-500",
       biology: "from-emerald-400 to-teal-500",
       humanities: "from-amber-400 to-orange-500",
-      quantum: "from-slate-500 to-blue-600",
+      quantum: "from-red-400 to-red-600",
       finance: "from-blue-400 to-blue-600",
       kaggle: "from-sky-400 to-cyan-500"
     };
