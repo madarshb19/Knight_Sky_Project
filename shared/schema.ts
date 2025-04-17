@@ -62,12 +62,12 @@ export const domainThemes = {
     card: "bg-amber-900/70 backdrop-blur-md border border-amber-700"
   },
   quantum: {
-    primary: "bg-slate-100",
-    secondary: "bg-white",
-    text: "text-slate-900",
-    accent: "text-blue-600",
-    background: "bg-gradient-to-r from-gray-50 to-slate-200",
-    card: "bg-white/90 backdrop-blur-md border border-slate-300"
+    primary: "bg-red-900",
+    secondary: "bg-red-800",
+    text: "text-red-100",
+    accent: "text-yellow-400",
+    background: "bg-gradient-to-r from-red-950 to-red-900",
+    card: "bg-red-900/70 backdrop-blur-md border border-red-700"
   },
   finance: {
     primary: "bg-blue-900",

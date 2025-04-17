@@ -226,9 +226,9 @@ export default function BackgroundLayer({ domain }: BackgroundLayerProps) {
                   y1={y}
                   x2="900"
                   y2={y}
-                  stroke="#1e293b"
+                  stroke="#f87171"
                   strokeWidth="2"
-                  opacity="0.5"
+                  opacity="0.6"
                 />
                 {Array.from({ length: 10 }).map((_, j) => {
                   const x = 100 + j * 80;
@@ -238,8 +238,8 @@ export default function BackgroundLayer({ domain }: BackgroundLayerProps) {
                       cx={x}
                       cy={y}
                       r="6"
-                      fill="#3b82f6"
-                      opacity="0.6"
+                      fill="#ef4444"
+                      opacity="0.7"
                     />
                   );
                 })}
@@ -259,9 +259,9 @@ export default function BackgroundLayer({ domain }: BackgroundLayerProps) {
                 key={`entangle-${i}`}
                 d={`M${x1},${y1} C${(x1+x2)/2},${y1} ${(x1+x2)/2},${y2} ${x2},${y2}`}
                 fill="none"
-                stroke="#3b82f6"
-                strokeWidth="1.5"
-                opacity="0.3"
+                stroke="#f87171"
+                strokeWidth="2"
+                opacity="0.4"
                 strokeDasharray="5,5"
               />
             );
@@ -278,9 +278,9 @@ export default function BackgroundLayer({ domain }: BackgroundLayerProps) {
                   cy={cy}
                   r="60"
                   fill="none"
-                  stroke="#1e293b"
-                  strokeWidth="1"
-                  opacity="0.4"
+                  stroke="#f87171"
+                  strokeWidth="1.5"
+                  opacity="0.6"
                 />
                 <ellipse
                   cx={cx}
@@ -308,8 +308,8 @@ export default function BackgroundLayer({ domain }: BackgroundLayerProps) {
           {/* Gradients */}
           <defs>
             <radialGradient id="quantumGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-              <stop offset="0%" stopColor="#3b82f6" />
-              <stop offset="100%" stopColor="#e2e8f0" stopOpacity="0" />
+              <stop offset="0%" stopColor="#ef4444" />
+              <stop offset="100%" stopColor="#7f1d1d" stopOpacity="0" />
             </radialGradient>
           </defs>
         </svg>
@@ -539,7 +539,7 @@ export default function BackgroundLayer({ domain }: BackgroundLayerProps) {
         domain === "astrophysics" ? "bg-gradient-to-b from-indigo-950 via-purple-950 to-slate-950" : 
         domain === "biology" ? "bg-gradient-to-b from-emerald-950 via-teal-950 to-slate-950" : 
         domain === "humanities" ? "bg-gradient-to-b from-amber-950 via-orange-950 to-slate-950" : 
-        domain === "quantum" ? "bg-gradient-to-b from-gray-50 via-slate-100 to-white" : 
+        domain === "quantum" ? "bg-gradient-to-b from-red-950 via-red-900 to-slate-950" : 
         domain === "finance" ? "bg-gradient-to-b from-blue-950 via-blue-900 to-slate-950" : 
         domain === "kaggle" ? "bg-gradient-to-b from-sky-800 via-sky-700 to-slate-950" : 
         "bg-gradient-to-b from-slate-950 via-purple-950 to-slate-950"
