@@ -1,52 +1,10 @@
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useQuery } from "@tanstack/react-query";
-import DomainSection from "@/components/DomainSection";
 import BackgroundLayer from "@/components/BackgroundLayer";
-import SearchBar from "@/components/SearchBar";
-import { Domain, ProjectType } from "@shared/schema";
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useToast } from "@/hooks/use-toast";
+import { Link } from "wouter";
+import { ArrowRight, Github, Linkedin, ExternalLink, Mail } from "lucide-react";
 
 export default function Home() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [activeTab, setActiveTab] = useState<Domain | "all">("all");
-  const { toast } = useToast();
-
-  const { data: projects, isLoading, isError } = useQuery<ProjectType[]>({
-    queryKey: ["/api/projects"],
-  });
-
-  useEffect(() => {
-    if (isError) {
-      toast({
-        title: "Error loading projects",
-        description: "Failed to load project data. Please try again later.",
-        variant: "destructive",
-      });
-    }
-  }, [isError, toast]);
-
-  const filteredProjects = projects?.filter((project) => {
-    // Filter by domain if a specific domain is selected
-    if (activeTab !== "all" && project.domain !== activeTab) {
-      return false;
-    }
-    
-    // Filter by search term
-    if (searchTerm) {
-      const searchLower = searchTerm.toLowerCase();
-      return (
-        project.title.toLowerCase().includes(searchLower) ||
-        project.description.toLowerCase().includes(searchLower) ||
-        project.technologies.some(tech => tech.toLowerCase().includes(searchLower))
-      );
-    }
-    
-    return true;
-  });
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { 
@@ -62,6 +20,12 @@ export default function Home() {
     }
   };
 
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1 },
+    exit: { y: -20, opacity: 0 }
+  };
+
   return (
     <div className="min-h-screen overflow-x-hidden relative bg-background text-foreground font-sans">
       <BackgroundLayer />
@@ -74,137 +38,153 @@ export default function Home() {
         variants={containerVariants}
       >
         <motion.div 
-          className="text-center mb-12"
+          className="text-center mb-8"
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-500">
-            Machine Learning Portfolio
+            Welcome to My Portfolio
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Exploring the intersection of machine learning across different domains
+            Exploring the intersection of machine learning and scientific discovery
           </p>
         </motion.div>
 
-        <div className="mb-8">
-          <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          <motion.div 
+            className="bg-card/80 backdrop-blur-sm rounded-xl p-6 shadow-lg"
+            variants={itemVariants}
+          >
+            <h2 className="text-2xl font-bold mb-4 text-card-foreground">About Me</h2>
+            <div className="space-y-4 text-card-foreground/90">
+              <p>
+                I'm a machine learning enthusiast passionate about applying AI to solve complex problems across different domains. 
+                My background in physics gives me a unique perspective on how to approach data analysis and model development.
+              </p>
+              <p>
+                I specialize in developing custom machine learning solutions for scientific research, 
+                with a particular focus on astrophysics, quantum computing, and biological systems.
+              </p>
+              <p>
+                My goal is to bridge the gap between cutting-edge machine learning techniques and domain-specific scientific challenges,
+                creating tools that advance our understanding of the world.
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            className="bg-card/80 backdrop-blur-sm rounded-xl p-6 shadow-lg"
+            variants={itemVariants}
+          >
+            <h2 className="text-2xl font-bold mb-4 text-card-foreground">My Research Interests</h2>
+            <ul className="space-y-3 text-card-foreground/90">
+              <li className="flex items-start">
+                <span className="text-primary mr-2">•</span>
+                <span><strong>Astrophysics:</strong> Applying deep learning to classify celestial objects, detect patterns in astronomical data, and analyze particle interactions.</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-primary mr-2">•</span>
+                <span><strong>Quantum ML:</strong> Exploring the intersection of quantum computing and neural networks to solve complex optimization problems.</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-primary mr-2">•</span>
+                <span><strong>Biological Systems:</strong> Developing models to understand protein structures, analyze gene expression, and predict molecular interactions.</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-primary mr-2">•</span>
+                <span><strong>Kaggle Competitions:</strong> Participating in data science competitions to solve real-world problems and collaborate with the global ML community.</span>
+              </li>
+            </ul>
+          </motion.div>
         </div>
 
-        <Tabs defaultValue="all" className="mb-12" onValueChange={(value) => setActiveTab(value as Domain | "all")}>
-          <div className="flex justify-center">
-            <TabsList className="mb-8">
-              <TabsTrigger value="all">All Projects</TabsTrigger>
-              <TabsTrigger value="astrophysics">Astrophysics</TabsTrigger>
-              <TabsTrigger value="biology">Biology</TabsTrigger>
-              <TabsTrigger value="humanities">Humanities</TabsTrigger>
-            </TabsList>
+        <motion.div 
+          className="mb-16"
+          variants={itemVariants}
+        >
+          <h2 className="text-2xl font-bold mb-6 text-center">Explore My Projects by Domain</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <DomainCard 
+              title="Astrophysics" 
+              description="ML applications in cosmic research"
+              color="from-purple-500 to-indigo-600"
+              link="/astrophysics"
+            />
+            <DomainCard 
+              title="Biology" 
+              description="ML for understanding biological systems"
+              color="from-green-500 to-emerald-600"
+              link="/biology"
+            />
+            <DomainCard 
+              title="Quantum ML" 
+              description="Quantum computing & machine learning"
+              color="from-red-500 to-rose-600"
+              link="/quantum"
+            />
+            <DomainCard 
+              title="Finance" 
+              description="ML models for financial analysis"
+              color="from-blue-500 to-indigo-700"
+              link="/finance"
+            />
+            <DomainCard 
+              title="Kaggle" 
+              description="Competition solutions & notebooks"
+              color="from-sky-400 to-blue-500"
+              link="/kaggle"
+            />
+            <DomainCard 
+              title="Humanities" 
+              description="ML approaches to human behavior"
+              color="from-orange-400 to-amber-600"
+              link="/humanities"
+            />
           </div>
+        </motion.div>
 
-          <TabsContent value="all">
-            {isLoading ? (
-              <div className="flex justify-center">
-                <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
-              </div>
-            ) : filteredProjects && filteredProjects.length > 0 ? (
-              <>
-                <DomainSection 
-                  title="Astrophysics" 
-                  description="Exploring the cosmos through data science"
-                  domain="astrophysics" 
-                  projects={filteredProjects.filter(p => p.domain === "astrophysics")} 
-                />
-                
-                <DomainSection 
-                  title="Biology" 
-                  description="Decoding life with machine learning"
-                  domain="biology" 
-                  projects={filteredProjects.filter(p => p.domain === "biology")} 
-                />
-                
-                <DomainSection 
-                  title="Humanities" 
-                  description="Understanding human culture through AI"
-                  domain="humanities" 
-                  projects={filteredProjects.filter(p => p.domain === "humanities")} 
-                />
-              </>
-            ) : (
-              <div className="text-center py-12">
-                <h3 className="text-xl font-medium mb-2">No projects found</h3>
-                <p className="text-muted-foreground mb-6">Try adjusting your search criteria</p>
-                <Button variant="outline" onClick={() => setSearchTerm("")}>Clear search</Button>
-              </div>
-            )}
-          </TabsContent>
-
-          <TabsContent value="astrophysics">
-            {isLoading ? (
-              <div className="flex justify-center">
-                <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
-              </div>
-            ) : filteredProjects && filteredProjects.filter(p => p.domain === "astrophysics").length > 0 ? (
-              <DomainSection 
-                title="Astrophysics" 
-                description="Exploring the cosmos through data science"
-                domain="astrophysics" 
-                projects={filteredProjects.filter(p => p.domain === "astrophysics")} 
-                fullPage
-              />
-            ) : (
-              <div className="text-center py-12">
-                <h3 className="text-xl font-medium mb-2">No astrophysics projects found</h3>
-                <p className="text-muted-foreground mb-6">Try adjusting your search criteria</p>
-                <Button variant="outline" onClick={() => setSearchTerm("")}>Clear search</Button>
-              </div>
-            )}
-          </TabsContent>
-
-          <TabsContent value="biology">
-            {isLoading ? (
-              <div className="flex justify-center">
-                <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
-              </div>
-            ) : filteredProjects && filteredProjects.filter(p => p.domain === "biology").length > 0 ? (
-              <DomainSection 
-                title="Biology" 
-                description="Decoding life with machine learning"
-                domain="biology" 
-                projects={filteredProjects.filter(p => p.domain === "biology")} 
-                fullPage
-              />
-            ) : (
-              <div className="text-center py-12">
-                <h3 className="text-xl font-medium mb-2">No biology projects found</h3>
-                <p className="text-muted-foreground mb-6">Try adjusting your search criteria</p>
-                <Button variant="outline" onClick={() => setSearchTerm("")}>Clear search</Button>
-              </div>
-            )}
-          </TabsContent>
-
-          <TabsContent value="humanities">
-            {isLoading ? (
-              <div className="flex justify-center">
-                <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
-              </div>
-            ) : filteredProjects && filteredProjects.filter(p => p.domain === "humanities").length > 0 ? (
-              <DomainSection 
-                title="Humanities" 
-                description="Understanding human culture through AI"
-                domain="humanities" 
-                projects={filteredProjects.filter(p => p.domain === "humanities")} 
-                fullPage
-              />
-            ) : (
-              <div className="text-center py-12">
-                <h3 className="text-xl font-medium mb-2">No humanities projects found</h3>
-                <p className="text-muted-foreground mb-6">Try adjusting your search criteria</p>
-                <Button variant="outline" onClick={() => setSearchTerm("")}>Clear search</Button>
-              </div>
-            )}
-          </TabsContent>
-        </Tabs>
+        <motion.div 
+          className="bg-card/80 backdrop-blur-sm rounded-xl p-6 shadow-lg"
+          variants={itemVariants}
+        >
+          <h2 className="text-2xl font-bold mb-4 text-card-foreground text-center">Get In Touch</h2>
+          <div className="flex flex-wrap justify-center gap-4 mt-6">
+            <Button className="gap-2" variant="outline">
+              <Github size={18} />
+              GitHub
+            </Button>
+            <Button className="gap-2" variant="outline">
+              <Linkedin size={18} />
+              LinkedIn
+            </Button>
+            <Button className="gap-2" variant="outline">
+              <Mail size={18} />
+              Contact Me
+            </Button>
+            <Button className="gap-2" variant="outline">
+              <ExternalLink size={18} />
+              Resume
+            </Button>
+          </div>
+        </motion.div>
       </motion.div>
     </div>
+  );
+}
+
+function DomainCard({ title, description, color, link }: { title: string; description: string; color: string; link: string }) {
+  return (
+    <Link href={link}>
+      <div className="cursor-pointer bg-card/80 backdrop-blur-sm rounded-xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full">
+        <h3 className={`text-xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r ${color}`}>
+          {title}
+        </h3>
+        <p className="text-card-foreground/80 mb-4">{description}</p>
+        <div className="flex items-center text-sm font-medium text-primary">
+          View Projects <ArrowRight size={16} className="ml-1" />
+        </div>
+      </div>
+    </Link>
   );
 }
