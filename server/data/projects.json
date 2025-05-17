@@ -4,7 +4,7 @@
     "title": "Electron-Photon particle classification with ResNet-15",
     "domain": "astrophysics",
     "description": "Using ResNet-15 architecture to classify electron-photon particles based on their energy signatures and track properties.",
-    "fullDescription": "<p>Don't really know what's the love for ResNet-15 here. I mean from what I see on first glance, this model looks like something people created for Super-resolution and last time I checked, model trying to identify whether a particle is an electron or photon isnt really a super-resolution problem but ay, I'm not the boss here.</p>",
+    "fullDescription": "<p>Don't really know what's the love for ResNet-15 here. I mean from what I see on first glance, this model looks like something people created for Super-resolution and last time I checked, model trying to identify whether a particle is an electron or photon isnt really a super-resolution problem but I guess thats what the people in CMS want.</p>",
     "technologies": [
       "PyTorch",
       "ResNet",
